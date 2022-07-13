@@ -1,0 +1,20 @@
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Car<span>Center</span></div>
+		</div>
+		<br>
+		<div class="login">
+				<input type="text" placeholder="Correo" name="user" [(ngModel)]="credenciales.correo"><br>
+				<input type="password" placeholder="Contraseña" name="password" [(ngModel)]="credenciales.password"><br>
+				<input type="button" value="Ingresar" (click)="login()">
+                <input type="button" value="Registrarse" (click)="registrarse()">
+</div>
+
+<div class="cargando" *ngIf="loading.activo">
+	<div class="loagin">
+	  <div class="icono"><img src="/assets/car.png"/></div>
+	  <div class="sombra"></div>
+	  <div class="texto font_size_20">{{ loading.mensaje }}</div>
+	</div>
+</div>

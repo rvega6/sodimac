@@ -1,0 +1,58 @@
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Car<span>Center</span></div>
+		</div>
+		<br>
+        <form class="container-login" [formGroup]="data">
+            <div class="login">
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="marca" placeholder="Marca" class="height-form-field">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="referencia" placeholder="Referencia" class="height-form-field">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="placa" placeholder="Placa" class="height-form-field">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="modelo" placeholder="Modelo" class="height-form-field">
+                </mat-form-field>
+<!-- 
+                <section >
+                    <mat-checkbox>¡El vehículo es mío!</mat-checkbox>
+                    <mat-checkbox>sdf</mat-checkbox>
+                </section> -->
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="documentoPropietario" placeholder="Documento del Propietario" class="height-form-field">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="nombrePropietario" placeholder="Mombre del Propietario" class="height-form-field">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="apellidoPropietario" placeholder="Apellido del Propietario" class="height-form-field">
+                </mat-form-field>
+
+				<button (click)="registrar()" [disabled]="data.invalid">
+                    Registrar
+                </button>
+                <button (click)="regresar()">
+                    Regresar
+                </button>
+    </div>
+</form>
+
+<div class="cargando" *ngIf="loading.activo">
+    <div class="loagin">
+      <div class="icono"><img src="/assets/car.png"/></div>
+      <div class="sombra"></div>
+      <div class="texto font_size_20">{{ loading.mensaje }}</div>
+    </div>
+</div>

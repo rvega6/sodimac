@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    overflow: hidden;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline-start, .mat-form-field-appearance-outline .mat-form-field-outline-end{
+   
+    border: none !important;
+}
+
+.mat-form-field-outline-start, .mat-form-field-appearance-outline .mat-form-field-outline-end{
+    border: 1px solid white !important;
+    border-radius: 7px !important;
+}

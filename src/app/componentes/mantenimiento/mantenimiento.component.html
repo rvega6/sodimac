@@ -1,0 +1,54 @@
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Car<span>Center</span></div>
+		</div>
+		<br>
+        <form class="container-login" [formGroup]="data">
+            <div class="login">
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input type="number" matInput formControlName="presupuestoPropietario" placeholder="Dinero presupuestado" class="height-form-field">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="width-form-field">
+                    <input matInput formControlName="descripcionArreglo" placeholder="Describa el daño" class="height-form-field">
+                </mat-form-field>
+
+                      <div class="icono"><img src="/assets/upload.png"/>
+                        <!-- <img src="{{imagenes[0]}}" alt="imagen subida"/> -->
+                        <input type="file" accept =".png, .jpg, .jpeg" (change)="cargarImagen($event)">
+                        </div>
+                      <div class="sombra"></div>
+                      <div class="texto font_size_20"></div>
+               
+                <select placeholder="Seleccione..." id="cars" name="cars" formControlName="placa" class="mat-select" [(ngModel)]="cars" (change)="capturarVehiculo(cars)">
+                    <option value="" disabled >Seleccione el vehículo...</option>
+                    <option style="background-color: white; color:black" [value]="item.marca + '|' + item.referencia + '|' + item.placa + '|' +  item.modelo + '|' + item.documentoPropietario + '|' + item.nombrePropietario + '|' + item.apellidoPropietario" 
+                    *ngFor="let item of vehiculos">{{item.placa }} - {{item.referencia }} - {{item.nombrePropietario}} {{item.apellidoPropietario}} </option>
+                </select>
+
+                
+
+                <!-- <select placeholder="Seleccione..." id="mecanico" name="mecanico" formControlName="mecanico" class="mat-select" [(ngModel)]="cars" (change)="capturarVehiculo(cars)"> -->
+                    <!-- <option value="" disabled >Seleccione el vehículo...</option> -->
+                    <!-- <option style="background-color: white; color:black" [value]="item.marca + '|' + item.referencia + '|' + item.placa + '|' +  item.modelo + '|' + item.documentoPropietario + '|' + item.nombrePropietario"  -->
+                    <!-- *ngFor="let item of vehiculos">{{item.placa }} - {{item.referencia }} - {{item.nombrePropietario}} {{item.apellidoPropietario}} </option> -->
+                <!-- </select> -->
+
+				<button (click)="registrar()" [disabled]="data.invalid">
+                    Registrar
+                </button>
+                <button (click)="regresar()">
+                    Regresar
+                </button>
+    </div>
+</form>
+
+<div class="cargando" *ngIf="loading.activo">
+    <div class="loagin">
+      <div class="icono"><img src="/assets/car.png"/></div>
+      <div class="sombra"></div>
+      <div class="texto font_size_20">{{ loading.mensaje }}</div>
+    </div>
+</div>
